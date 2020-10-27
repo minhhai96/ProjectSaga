@@ -1,20 +1,28 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {View, StyleSheet} from 'react-native';
+import ToolBar from '../../components/common/ToolBar';
+import BackIcon from '../../components/common/BackIcon';
+import * as RootNavigation from '../../router/RootNavigation';
 
 const Feed = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Icon name={'home'} size={50} />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <ToolBar
+        LeftComponent={
+          <BackIcon
+            iconName={'menu'}
+            onPress={() => RootNavigation.toggleDrawer()}
+          />
+        }
+        center={'Feed'}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: 'white',
   },
 });

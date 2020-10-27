@@ -1,20 +1,20 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {View, StyleSheet} from 'react-native';
+import {Colors} from '../../../res';
+import ToolBar from '../../components/common/ToolBar';
 
 const Profile = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Icon name={'id-badge'} size={50} />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <ToolBar title={'Profile'} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: Colors.white,
   },
 });
 
