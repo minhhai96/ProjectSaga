@@ -5,13 +5,13 @@ export const API_URL = 'https://api.github.com/';
 
 export const request = async (method, token = null, data, endpoint) => {
   return axios({
-    method: method,
+    method: method || 'GET',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'x-access-token': token || (await getToken()),
     },
-    data: JSON.stringify(data),
+    data: method === 'POST' && JSON.stringify(data),
     url: `${API_URL}${endpoint}`,
   })
     .then((response) => {
