@@ -8,7 +8,7 @@ const Drawer = createDrawerNavigator();
 const Root = () => {
   return (
     <Drawer.Navigator
-      screenOptions={{swipeEnabled: true}}
+      screenOptions={{swipeEnabled: false}}
       drawerContent={() => <DrawerMenu />}
       drawerPosition="left">
       <Drawer.Screen name={'Main'} component={AppRouter} />
