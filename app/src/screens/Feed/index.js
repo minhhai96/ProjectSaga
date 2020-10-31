@@ -6,15 +6,14 @@ import * as RootNavigation from '../../router/RootNavigation';
 import LoadingView from '../../components/common/LoadingView';
 import {connect} from 'react-redux';
 import {hideLoading, showLoading} from '../../redux/actions/LoadingActions';
+import {getListUsers} from '../../redux/actions/UsersActions';
 
 const Feed = (props) => {
   useEffect(() => {
-    props.showLoading();
-    setTimeout(() => {
-      props.hideLoading();
-    }, 3000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getListUsers();
   }, []);
+
+  console.log('props users', props.users);
 
   return (
     <View style={styles.container}>
@@ -42,6 +41,7 @@ const styles = StyleSheet.create({
 export default connect(
   (state) => ({
     loading: state.loadingState.loading,
+    users: state.usersState.users,
   }),
-  {hideLoading, showLoading},
+  {hideLoading, showLoading, getListUsers},
 )(Feed);
