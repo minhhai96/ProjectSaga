@@ -1,13 +1,12 @@
 import {ACTIONS} from '../actions';
-import {put, call, takeLatest} from 'redux-saga/effects';
+import {put, takeLatest} from 'redux-saga/effects';
 import {hideLoading, showLoading} from '../actions/LoadingActions';
 import {getUsers} from '../../api/Api';
 
 function* GET_LIST_USER() {
   yield put(showLoading());
   try {
-    const response = yield call(getUsers());
-    console.log('response', response);
+    const response = yield getUsers();
     yield put({type: ACTIONS.SAVE_LIST_USER, users: response});
     yield put(hideLoading());
   } catch (e) {

@@ -1,5 +1,5 @@
 import {ACTIONS} from '../actions';
 
-export const getListUsers = () => {
-  return {type: ACTIONS.GET_LIST_USER};
+export const getListUsers = () => (dispatch) => {
+  dispatch({type: ACTIONS.GET_LIST_USER});
 };
