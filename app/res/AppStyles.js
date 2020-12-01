@@ -15,6 +15,9 @@ const AppStyles = StyleSheet.create({
   marginTop25: {
     marginTop: sizeHeight(25),
   },
+  row: {
+    flexDirection: 'row',
+  },
 });
 
 export default AppStyles;

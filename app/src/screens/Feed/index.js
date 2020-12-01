@@ -8,11 +8,13 @@ import {connect} from 'react-redux';
 import {hideLoading, showLoading} from '../../redux/actions/LoadingActions';
 import {getListUsers} from '../../redux/actions/UsersActions';
 import TextNormal from '../../components/common/TextNormal';
+import Skeleton from '../../components/common/Skeleton';
 
 const Feed = (props) => {
   useEffect(() => {
     props.getListUsers();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getListUsers]);
 
   return (
     <View style={styles.container}>
@@ -25,10 +27,11 @@ const Feed = (props) => {
         }
         center={'Feed'}
       />
-      {props.loading && <LoadingView />}
+      {props.loading && <Skeleton />}
       <FlatList
         data={props.users}
         renderItem={(item) => {
+          console.log('item', item);
           return <TextNormal>{item.item.login}</TextNormal>;
         }}
         keyExtractor={(item, index) => index.toString()}
