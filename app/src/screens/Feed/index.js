@@ -3,7 +3,6 @@ import {View, StyleSheet, FlatList} from 'react-native';
 import ToolBar from '../../components/common/ToolBar';
 import BackIcon from '../../components/common/BackIcon';
 import * as RootNavigation from '../../router/RootNavigation';
-import LoadingView from '../../components/common/LoadingView';
 import {connect} from 'react-redux';
 import {hideLoading, showLoading} from '../../redux/actions/LoadingActions';
 import {getListUsers} from '../../redux/actions/UsersActions';
